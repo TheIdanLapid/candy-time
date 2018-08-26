@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/materialize.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+
+  body
+    nav.deep-purple.accent-2(role='navigation')
+      .nav-wrapper.container
+        a#logo-container(href='/').brand-logo Sugar
+        form(action='/login', method='post')
+          ul.right.hide-on-med-and-down
+            li.input-field
+              input.validate(name='email' type='email', placeholder='email address')
+            li.input-field
+              input.validate(name='pwd' type='password', placeholder='password')
+            if status='nonreg'
+              li
+                input.btn.indigo.hoverable(type='submit', name='submit', value='Log In!')
+            else
+              li
+                input.btn.indigo.hoverable(type='submit', name='submit', value='Log out')
+            li
+              a(href='/users/register') Register
+        ul.sidenav#mobile-nav
+          li
+            a(href='/users/login') Login
+          li
+            a(href='/users/register') Register
+        a.sidenav-trigger(data-target='mobile-nav', href='#')
+          i.material-icons menu
+
+
+    script(src='https://code.jquery.com/jquery-3.3.1.min.js')
+    script(src='/javascripts/materialize.js')
+    script(src='/javascripts/init.js')
+  block content

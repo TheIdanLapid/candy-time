@@ -1,0 +1,29 @@
+extends layout
+
+block content
+ .container
+  ul#errors
+   if errors
+    each error, i in errors
+     li.red #{error.msg}
+  .row(style='margin: 50px;')
+    form.col.s12(action='/users/register', method='post', enctype='multipart/form-data')
+     .input-field.section
+      label(for='rfn') YOUR NAME, SIR
+      input.validate#rfn(name='name' type='text')
+     .input-field.section
+      label(for='rfun') Username
+      input.validate#rfun(name='uname' type='text')
+     .input-field.section
+      label(for='rfm') Email
+      input.validate#rfm(type='email', name='email')
+     .input-field.section
+      label(for='rfmc') mail confirmation
+      input.validate#rfmc(type='email', name='emailc')
+     .input-field.section
+      label(for='rfp') Password
+      input.validate#rfp(type='password', name='pwd')
+     .input-field.section.col.s6
+      label(for='rfi') Profile image
+      input.validate.right#rfi(name='profileImage' type='file')
+     input.btn.waves-effect.deep-purple.accent-3(name='submit' type='submit', value='nomnomnom')

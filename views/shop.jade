@@ -1,0 +1,20 @@
+extends layout
+
+block content
+ .container
+  if status!='nonreg'
+   h1 Greeting, #{opt.userName}
+  if !admin
+   if displays
+    form(action='/users/#{opt.userId}/cart', method='post', enctype='multipart-form-data')
+     ul.row
+      each display, i in displays
+       li.card.horizontal.lime.lighten-4
+        .col.s4
+         .card-title  #{display.pName}
+        .col.s4
+         .card-content Price #{display.pPrice}
+        .col.s4
+         input(type='number', name=`qty-${display.prodId}`, placeholder='amount')
+     if status='registered'
+      input.btn.deep-orange.lighten-1(type='submit', name="gotocart")

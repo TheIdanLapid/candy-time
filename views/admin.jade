@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+ .container
+  if admin
+   h2=msg
+   form(action='/admin/catalog', method='post')
+   .input-field.section
+    label(for='rfn') product name
+    input.validate#rfn(name='name' type='text')
+   .input-field.section
+    label(for='rfun') price
+    input.validate#rfun(name='price' type='text')
+   .input-field.section
+    select
+     each time, i in times
+      option(value=i, placeholder='time') #{time}
+   .input-field.section
+    label(for='rfi') image
+     input.validate.right#rfi(name='image' type='file')
+   input.btn.waves-effect.orange.accent-3(name='submit' type='submit', value='Add')
+
+
+  a.btn(href='admin/catalog') INVENTORY

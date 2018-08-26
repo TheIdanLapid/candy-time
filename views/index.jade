@@ -1,0 +1,17 @@
+extends layout
+
+block content
+ .container
+  h1= title
+  if message
+   h3.card-content.yellow.accent-2.white-text=zibi
+  .row.col.s12
+   .card.col.s6.pink.lighten-2
+     .card-title Sweets of the past
+     .card-content photo
+     a.indigo.btn.waves-effect(href='shop/nonreg/0') Ahoy!
+    .card.col.s6.light-blue.lighten-3
+     .card-title Future Munch
+     .card-content photo
+     a.btn.indigo.waves-effect(href='shop/nonreg/1') ZZT!
+  a.btn.red.accent-3(href='admin') Admin Access

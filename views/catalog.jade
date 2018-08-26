@@ -1,0 +1,21 @@
+extends layout
+
+block content
+ .container
+  h2=status
+  h3 Welcome, #{opt.userName}
+  if admin
+   if displays
+    form(action='/admin/catalog', method='delete')
+     ul#displays
+      each display, i in displays
+       li.card
+        .card-content #{display.pName}
+         .row.right
+          .col
+           label
+            input(type='checkbox')
+            span.blue-text(style='border: 10px;') select
+           label
+            a.btn.red.lighten-1.hoverable(name=`p${display.prodId}` href=`admin/catalog/edit/${display.prodId}`, style='margin: 10px;') edit product
+          input.btn(type='submit', name='pDelete')
